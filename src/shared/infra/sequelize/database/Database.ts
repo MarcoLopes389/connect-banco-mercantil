@@ -1,0 +1,23 @@
+import { Sequelize } from '@sequelize/core';
+import { IDatabase } from './IDatabase';
+
+class Database implements IDatabase {
+    connection!: Sequelize;
+
+    async connect(): Promise<void> {
+        this.connection = new Sequelize({
+            host: 'localhost',
+            dialect: 'postgres',
+            username: 'marco',
+            password: 'secret',
+            database: 'consigmais'
+        })
+        
+    }
+    async disconnect(): Promise<void> {
+        await this.connection.close()
+    }
+
+}
+
+export const database = new Database()
