@@ -16,7 +16,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "express-prometheus-middleware": "^1.2.0",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "tsconfig-paths": "^3.12.0",
+    "tsyringe": "^4.6.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
