@@ -32,6 +32,12 @@ module.exports = {
       },
       valorTotal: {
         type: Sequelize.DataTypes.INTEGER
+      },
+      createdAt: {
+        type: Sequelize.DataTypes.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DataTypes.DATE
       }
     }
     )
