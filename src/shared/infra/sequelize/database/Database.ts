@@ -8,8 +8,8 @@ class Database implements IDatabase {
         this.connection = new Sequelize({
             host: 'localhost',
             dialect: 'postgres',
-            username: 'marco',
-            password: 'secret',
+            username: 'nano',
+            password: 'nano',
             database: 'consigmais'
         })
         

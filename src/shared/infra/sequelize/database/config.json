@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "dialect": "postgres",
+    "username": "nano",
+    "password": "nano",
+    "database": "consigmais"
+}

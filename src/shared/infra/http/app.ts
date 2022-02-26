@@ -1,24 +1,35 @@
+import 'express-async-errors';
+import 'reflect-metadata'
+import '../../containers'
 import { database } from '../sequelize';
 import express, { Express } from 'express';
 import cors from 'cors';
+import simulationRouter from './routes/simulation.route'
 import expressPrometheusMiddleware from 'express-prometheus-middleware';
+import { container } from 'tsyringe';
+import { UpdateToken } from '../../../jobs/updateToken';
+import { config } from 'dotenv';
+
+config()
+const updateToken = container.resolve(UpdateToken)
 
 class App {
-    server: Express
+    server: Express;
 
-    constructor () {
-        this.server = express()
+    constructor() {
+        this.server = express();
     }
 
     setup() {
-        this.middlewares()
-        this.routes()
-        this.connections()
-        process.on('SIGTERM', this.finish)
-        process.on('SIGINT', this.finish)
+        this.middlewares();
+        this.routes();
+        this.connections();
+        updateToken.start()
+        process.on('SIGTERM', this.finish);
+        process.on('SIGINT', this.finish);
     }
 
-    middlewares () {
+    middlewares() {
         this.server.use(express.json());
         this.server.use(cors());
         this.server.use(express.urlencoded({ extended: true }));
@@ -31,17 +42,18 @@ class App {
         );
     }
 
-    routes () {
+    routes() {
+        this.server.use('/', simulationRouter)
     }
 
-    async connections () {
-        await database.connect()
+    async connections() {
+        await database.connect();
     }
 
-    finish () {
-        database.disconnect()
-        process.exit()
+    finish() {
+        database.disconnect();
+        process.exit();
     }
 }
 
-export const app = new App()
+export const app = new App();

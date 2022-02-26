@@ -7,11 +7,13 @@
     "rootDir": "./",
     "baseUrl": "./src",
     "paths": {
-      "@dtos": ["/dtos"],
-      "@entities": ["/entities"],
-      "@infra": ["/infra"],
-      "@repositories": ["/repositories"],
-      "@useCases": ["/useCases"],
+      "@dtos": ["/dtos/*"],
+      "@entities": ["/entities/*"],
+      "@infra": ["/infra/*"],
+      "@repositories": ["/repositories/*"],
+      "@useCases": ["/useCases/*"],
+      "@jobs/*": ["/jobs/*"],
+      "@utils/*": ["/utils/*"],
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     "resolveJsonModule": true,
