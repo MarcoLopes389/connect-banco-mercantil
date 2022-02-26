@@ -6,7 +6,7 @@ module.exports = {
       id: {
         type: Sequelize.DataTypes.UUID,
       },
-      cpf: Sequelize.DataTypes.INTEGER,
+      cpf: Sequelize.DataTypes.BIGINT,
       cep: Sequelize.DataTypes.STRING,
       name: Sequelize.DataTypes.STRING,
       phone: {
@@ -19,16 +19,16 @@ module.exports = {
         type: Sequelize.DataTypes.DATE
       },
       taxaJurosAno: {
-        type: Sequelize.DataTypes.INTEGER
+        type: Sequelize.DataTypes.FLOAT
       },
       taxaJurosMes: {
-        type: Sequelize.DataTypes.INTEGER
+        type: Sequelize.DataTypes.FLOAT
       },
       valorEmprestimo: {
-        type: Sequelize.DataTypes.INTEGER
+        type: Sequelize.DataTypes.FLOAT
       },
       valorFinanciado: {
-        type: Sequelize.DataTypes.INTEGER
+        type: Sequelize.DataTypes.FLOAT
       },
       valorTotal: {
         type: Sequelize.DataTypes.INTEGER
