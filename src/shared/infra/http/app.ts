@@ -22,8 +22,8 @@ class App {
 
     setup() {
         this.middlewares();
-        this.routes();
         this.connections();
+        this.routes();
         updateToken.start()
         process.on('SIGTERM', this.finish);
         process.on('SIGINT', this.finish);

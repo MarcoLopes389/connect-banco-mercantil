@@ -1,16 +1,17 @@
 import { Sequelize } from '@sequelize/core';
 import { IDatabase } from './IDatabase';
+import config from './config.json'
 
 class Database implements IDatabase {
     connection!: Sequelize;
 
     async connect(): Promise<void> {
         this.connection = new Sequelize({
-            host: 'localhost',
+            host: config.host,
             dialect: 'postgres',
-            username: 'nano',
-            password: 'nano',
-            database: 'consigmais'
+            username: config.username,
+            password: config.password,
+            database: config.database
         })
         
     }
@@ -19,5 +20,4 @@ class Database implements IDatabase {
     }
 
 }
-
 export const database = new Database()

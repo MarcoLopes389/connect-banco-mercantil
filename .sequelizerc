@@ -1,0 +1,7 @@
+const path = require("path");
+
+module.exports = {
+  config: path.resolve("src", "shared", "infra", "sequelize", "database", "config.json"),
+  "models-path": path.resolve("src", "shared", "infra", "sequelize", "entities"),
+  "migrations-path": path.resolve("src", "shared", "infra", "sequelize", "migrations")
+};

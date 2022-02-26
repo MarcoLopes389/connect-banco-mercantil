@@ -6,6 +6,7 @@ import ms from 'ms'
 export class UpdateToken {
 
     private job!: NodeJS.Timeout;
+    private interval = ms('30s')
 
     constructor(
         @inject('MercantilWrapper')
@@ -13,10 +14,11 @@ export class UpdateToken {
     ) {}
 
     async start(): Promise<void> {
+        console.log(this.interval)
         this.job = setInterval(async () => {
             console.log('[ JOB ] Executing refresh token job...')
             await this.mercantilWrapper.auth()
-        }, ms('1m'))
+        }, this.interval)
     }
 
     async stop(): Promise<void> {

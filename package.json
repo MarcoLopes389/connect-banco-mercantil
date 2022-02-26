@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "ts-node-dev ./src/shared/infra/http/index.ts"
+    "start": "npm run build && node /dist/shared/infra/httpindex.js",
+    "build": "tsc",
+    "dev": "ts-node-dev ./src/shared/infra/http/index.ts",
+    "migrate:db": "npx sequelize-cli db:migrate"
   },
   "author": "",
   "license": "ISC",
