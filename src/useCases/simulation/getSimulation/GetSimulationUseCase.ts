@@ -24,20 +24,25 @@ export class GetSimulationUseCase {
             convertBalance(balance.parcelas)
         )
         const date = new Date()
-        await this.simulationRepository.saveSimulation({
-            id: randomUUID(),
-            cpf: user.cpf,
-            cep: user.cep,
-            name: user.name,
-            phone: user.phone,
-            birthday: user.birthday,
-            simulationDate: date.toString(),
-            taxaJurosAno: simulation.taxaJurosAno,
-            taxaJurosMes: simulation.taxaJurosMes,
-            valorEmprestimo: simulation.valorEmprestimo,
-            valorFinanciado: simulation.valorFinanciado,
-            valorTotal: simulation.valorSomatorioParcelas,
-        })
+        try{
+            await this.simulationRepository.saveSimulation({
+                id: randomUUID(),
+                cpf: user.cpf,
+                cep: user.cep,
+                name: user.name,
+                phone: user.phone,
+                birthday: user.birthday,
+                simulationDate: date.toString(),
+                taxaJurosAno: simulation.taxaJurosAno,
+                taxaJurosMes: simulation.taxaJurosMes,
+                valorEmprestimo: simulation.valorEmprestimo,
+                valorFinanciado: simulation.valorFinanciado,
+                valorTotal: simulation.valorSomatorioParcelas,
+            })
+        } catch {
+            console.log('Do not create simulation!')
+        }
+        
         return simulation
     }
 }

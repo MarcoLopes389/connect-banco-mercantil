@@ -5,7 +5,7 @@ database.connect()
 
 export interface SimulationCreate extends Optional<ISimulation, "id"> {}
 
-export const Simulation: ModelDefined<ISimulation, SimulationCreate> = database.connection.define('simulation', {
+export const Simulation: ModelDefined<ISimulation, SimulationCreate> = database.connection.define('simulations', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,

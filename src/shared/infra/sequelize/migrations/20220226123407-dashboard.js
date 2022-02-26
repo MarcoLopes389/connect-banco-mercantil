@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('simulation', {
+    return queryInterface.createTable('simulations', {
       id: {
         type: Sequelize.DataTypes.UUID,
       },
