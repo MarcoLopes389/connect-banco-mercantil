@@ -35,9 +35,9 @@ export class MercantilWrapper implements IMercantilWrapper {
         parcelas: IPartialDTO[], 
     ): Promise<ISimulationDTO> {
         const correspondente: ICorrespondentDTO = {
-            usuarioDigitador:"X047895", 
-		    cpfAgenteCertificado: 92729185704,
-		    ufAtuacao: "MG"
+            usuarioDigitador:"****", 
+		    cpfAgenteCertificado: 09000000,
+		    ufAtuacao: "**"
         }
         const api = axios.create({
             baseURL: process.env.SIMULATION_URL as string,
